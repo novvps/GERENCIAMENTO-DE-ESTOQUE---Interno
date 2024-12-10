@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <div class="col-5 mx-auto">
+        <h3>Edite</h3><hr>
+        <form method="post" action="{{url_for('edit_produto',id=datas.ID)}}">
+            <div class="form-group">
+                <label>Nome Produto</label>
+                <input type="text" name="nome_produto" required class="form-control" value="{{datas.NOME_PRODUTO}}">
+            </div>
+            <div class="form group">
+                <label>Quantidade</label>
+                <input type="text" name="quantidade" required class="form-control" value="{{datas.QUANTIDADE}}">
+            </div>
+            <div class="form group">
+                <label>Data de Compra</label>
+                <input type="text" name="data_compra" required class="form-control" value="{{datas.DATA_DE_COMPRA}}">
+            </div>
+            <div class="form group">
+                <label>Data de Validade</label>
+                <input type="text" name="data_validade" required class="form-control" value="{{datas.DATA_DE_VALIDADE}}">
+            </div>
+            <div class="form group">
+                <label>Valor de Compra</label>
+                <input type="text" name="valor_compra" required class="form-control" value="{{datas.VALOR_DE_COMPRA}}">
+            </div>
+            <div class="form group">
+                <label>Valor de Venda</label>
+                <input type="text" name="valor_venda" required class="form-control" value="{{datas.VALOR_DE_VENDA}}">
+            </div>
+            <div class="form group">
+                <label>Lucro em Porcentagem</label>
+                <input type="text" name="lucro_porcentagem" required class="form-control" value="{{datas.LUCRO_EM_PORCENTAGEM}}">
+            </div>
+            <input type="submit" value="Confirmar" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %}

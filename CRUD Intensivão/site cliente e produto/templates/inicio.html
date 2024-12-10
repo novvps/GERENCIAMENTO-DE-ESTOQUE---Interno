@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row">
+    <h3 class='text-center text-muted mb-3'></h3>
+    <p class="text-right">
+        <a href="{{url_for('add_produto')}}" class="btn btn-success">+Novo Cadastro</a>
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome do Produto</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Data de Compra</th>
+                <th scope="col">Data de Validade</th>
+                <th scope="col">Valor de Compra</th>
+                <th scope="col">Valor de Venda</th>
+                <th scope="col">Lucro em Porcentagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in datas %}
+            <tr>
+                <td>{{row.ID}}</td>
+                <td>{{row.NOME_PRODUTO}}</td>
+                <td>{{row.QUANTIDADE}}</td>
+                <td>{{row.DATA_DE_COMPRA}}</td>
+                <td>{{row.DATA_DE_VALIDADE}}</td>
+                <td>{{row.VALOR_DE_COMPRA}}</td>
+                <td>{{row.VALOR_DE_VENDA}}</td>
+                <td>{{row.LUCRO_EM_PORCENTAGEM}}</td>
+                <td>
+                    <a href="{{url_for('edit_produto', id=row.ID)}}" class="btn btn-primary">Editar</a>
+                </td>
+                <td>
+                    <a href="{{url_for('delete_produto', id=row.ID)}}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja apagar?')">Deletar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
